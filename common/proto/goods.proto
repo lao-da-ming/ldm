@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package="../gen_proto/goods;goods";
+
+// 定义一个服务
+service Goods {
+  // 定义一个简单的RPC调用
+  rpc GoodsInfo(GoodsInfoReq) returns (GoodsInfoRsp) {}
+}
+
+// 请求消息
+message GoodsInfoReq {
+  string name = 1;
+}
+
+// 响应消息
+message GoodsInfoRsp {
+  string message = 1;
+}

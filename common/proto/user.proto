@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package="../gen_proto/user;user";
+
+// 定义一个服务
+service User {
+  // 定义一个简单的RPC调用
+  rpc Profile(ProfileReq) returns (ProfileRsp) {}
+}
+
+// 请求消息
+message ProfileReq {
+  string name = 1;
+}
+
+// 响应消息
+message ProfileRsp {
+  string message = 1;
+}
