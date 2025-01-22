@@ -12,7 +12,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/", func(c *gin.Context) {
 		rsp, err := user.NewUserService(constant.RPC_USER_SRV, micro.NewService().Client()).Profile(context.Background(), &user.ProfileReq{
-			Name: "ldm",
+			Name: "user",
 		})
 		if err != nil {
 			c.JSON(300, err)
