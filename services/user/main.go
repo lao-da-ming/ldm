@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"github.com/micro/go-micro/v2"
 	"ldm/Initialize"
@@ -18,7 +19,8 @@ func main() {
 	service.Init()
 	//初始化mysql
 	db := Initialize.InitMysql()
-	user.RegisterUserHandler(service.Server(), srv.NewUserImpl(db))
+	ctx := context.Background()
+	user.RegisterUserHandler(service.Server(), srv.NewUserImpl(ctx, db))
 	// Run service
 	if err := service.Run(); err != nil {
 		fmt.Println(err)

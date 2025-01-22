@@ -10,10 +10,10 @@ service User {
 
 // 请求消息
 message ProfileReq {
-  string name = 1;
+  int64 id = 1;
 }
 
 // 响应消息
 message ProfileRsp {
-  string message = 1;
+  string Name = 1;
 }
